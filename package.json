@@ -1,0 +1,25 @@
+{
+  "name": "website",
+  "module": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "lint": "prettier --write .",
+    "build": "bun build src/index.ts --outdir dist --target node --external @safidea_/engine",
+    "watch": "bun build src/index.ts --outdir dist --target node --external @safidea_/engine --watch",
+    "dev": "concurrently \"NODE_OPTIONS=--no-deprecation nodemon dist/index.js\" \"npm run watch\"",
+    "start": "NODE_OPTIONS=--no-deprecation dist/index.js"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "nodemon": "^3.1.7",
+    "prettier": "^3.3.3",
+    "concurrently": "^9.0.1"
+  },
+  "peerDependencies": {
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@safidea_/engine": "^0.31.2",
+    "dotenv": "^16.4.5"
+  }
+}
